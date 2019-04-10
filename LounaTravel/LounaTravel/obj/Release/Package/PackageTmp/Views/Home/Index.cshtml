@@ -1,0 +1,709 @@
+﻿@model LounaTravel.EntityFramework.TourHotel
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script>
+    function ValidationSearchTour() {
+        var fromPlace = document.getElementById("txtFromPlace");
+        if (fromPlace.value != 0) {
+            return true;
+        }
+        alert('Bạn cần chọn nơi khởi hành');
+        return false;
+
+    }
+    function ValidationSearchHotel() {
+        var price = document.getElementById("txtPrice");
+        var toPlace = document.getElementById("txtToPlace");
+
+        if (toPlace.value == 0) {
+            alert('Bạn cần thành phố bạn muốn ở');
+            return false;
+        }
+        if (price.value == 0) {
+            alert('Bạn cần chọn tầm giá');
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+<div id="bg-image" class="hero-wrap js-fullheight" style="background-image: url('/Assets/images/bg4.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate mb-5 pb-5 text-center text-md-left" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Khám Phá  <br>Một Địa Điểm Mới</h1>
+                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tìm một nơi để ở , ăn, mua sắm với các chuyên gia địa phương...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-animate justify-content-end ftco-search">
+    <div class="container-wrap ml-auto">
+        <div class="row no-gutters">
+            <div class="col-md-12 nav-link-wrap">
+                <div class="nav nav-pills justify-content-center text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Du Lịch</a>
+
+                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
+                </div>
+            </div>
+            <div class="col-md-12 tab-wrap">
+
+                <div class="tab-content p-4 px-5" id="v-pills-tabContent">
+
+                    <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+
+
+                        @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { onsubmit = "return ValidationSearchTour()" }))
+                        {
+
+
+                            <div class="search-destination">
+                                <div class="row">
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Nơi Khởi Hành</label>
+                                            <div class="form-field">
+                                                <div class="select-wrap">
+                                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                    <select name="txtFromPlace" id="txtFromPlace" class="form-control">
+                                                        <option value="0">Nơi Khởi Hành</option>
+                                                        @foreach (var fromPlace in Model.listComboBoxFromPlace)
+                                                        {
+
+                                                            <option value="@fromPlace.CityID">@fromPlace.CityName</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Nơi Đến</label>
+                                            <div class="form-field">
+                                                <div class="select-wrap">
+                                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                    <select name="txtToPlace" id="" class="form-control">
+                                                        <option value="0">Chọn Nơi Đến</option>
+                                                        @foreach (var toPlace in Model.listComboBoxToPlace)
+                                                        {
+
+                                                            <option value="@toPlace.CityID">@toPlace.CityName</option>
+                                                        }
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Ngày Khởi Hành</label>
+                                            <div class="form-field">
+                                                <div class="icon"><span class="icon-map-marker"></span></div>
+                                                @{
+                                                    var dateTime = DateTime.Now.ToShortDateString();
+                                                }
+                                                <input type="text" class="form-control checkin_date" placeholder="Chọn ngày" name="timeBegin" value="@dateTime">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Số hành khách</label>
+                                            <div class="form-field">
+                                                <div class="select-wrap">
+                                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                    <select name="traveler" id="" class="form-control">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md align-self-end">
+                                        <div class="form-group">
+                                            <div class="form-field">
+                                                <input type="submit" value="Search" class="form-control btn btn-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+
+                        <div class="search-destination">
+                            @using (Html.BeginForm("SearchHotel", "Home", FormMethod.Post, new { onsubmit = "return ValidationSearchHotel()" }))
+                            {
+                                <div class="row">
+
+
+
+
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Nơi Đến</label>
+                                            <div class="form-field">
+                                                <div class="select-wrap">
+                                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                    <select name="txtToPlace" id="txtToPlace" class="form-control">
+                                                        <option value="0">Chọn nơi đến</option>
+                                                        @foreach (var toPlace in Model.listComboBoxToPlace)
+                                                        {
+
+
+                                                            <option value="@toPlace.CityID">@toPlace.CityName</option>
+
+                                                        }
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md align-items-end">
+                                        <div class="form-group">
+                                            <label for="#">Giá Tiền</label>
+                                            <div class="form-field">
+                                                <div class="select-wrap">
+                                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                    <select name="txtPrice" id="txtPrice" class="form-control">
+                                                        <option value="0">Giá</option>
+                                                        <option value="1000000">Dưới 1 triệu</option>
+                                                        <option value="2000000">Dưới 2 triệu</option>
+                                                        <option value="4000000">Dưới 4 triệu</option>
+                                                        <option value="6000000">Dưới 6 triệu</option>
+                                                        <option value="8000000">Dưới 8 triệu</option>
+
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md align-self-end">
+
+                                        <div class="form-group">
+                                            <div class="form-field">
+                                                <input type="submit" value="Search" class="form-control btn btn-primary">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="intro ftco-animate">
+                    <h3><span>01</span> MẠNG BÁN TOUR</h3>
+                    <p>
+                        Số 1 tại Việt Nam <br />
+                        Ứng dụng công nghệ mới nhất
+
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="intro ftco-animate">
+                    <h3><span>02</span> GIÁ CẢ</h3>
+                    <p>
+                        Luôn có mức giá ưu đãi nhất
+                        <br />
+                        Liên kết với các tổ chức tài chính
+
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="intro ftco-animate">
+                    <h3><span>03</span> HỖ TRỢ</h3>
+                    <p>
+                        Luôn hỗ trợ khách hàng 24/7
+                        <br />
+                        Luôn phục vụ tận tình
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-about d-md-flex">
+    <div class="one-half img" style="background-image: url(/Assets/images/introduce.jpg);"></div>
+    <div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+            <h2 class="mb-4">Thông Tin Về Louna Travel</h2>
+        </div>
+        <div>
+            <p>Với sứ mệnh giúp khách du lịch trải nghiệm thế giới dễ dàng, Louna Travel đầu tư vào công nghệ kỹ thuật số nhằm giúp du lịch trở nên dễ dàng hơn. Tại Louna Travel, chúng tôi kết nối du khách với vô số chỗ nghỉ tuyệt vời trên thế giới, từ căn hộ, nhà nghỉ dưỡng, cho đến các resort sang trọng 5 sao, nhà trên cây và thậm chí là lều tuyết.</p>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-yatch"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Special Activities</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-around"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Travel Arrangements</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-compass"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Private Guide</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                <div class="media block-6 services d-block">
+                    <div class="icon"><span class="flaticon-map-of-roads"></span></div>
+                    <div class="media-body">
+                        <h3 class="heading mb-3">Location Manager</h3>
+                        <p>A small river named Duden flows by their place and supplies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Địa Điểm Phổ Biến Nhất</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+
+
+
+            }
+            @{ int count = 0;}
+            @foreach (var tour in Model.Tour)
+            {
+                if (count > 4)
+                {
+                    break;
+                    
+                }
+                else
+                {
+                    <div class="col-sm col-md-6 col-lg ftco-animate">
+                        @if (count % 2 == 0)
+                        {
+                            <div class="destination">
+                                @{
+                                    string path;
+
+                                    if (@tour.tbl_Image != null && tour.tbl_Image.Count > 0)
+                                    {
+                                        path = @tour.tbl_Image.FirstOrDefault().Path;
+
+                                    }
+                                    else
+                                    {
+                                        path = "error.jpg";
+
+                                    }
+                                }
+                                <a href="@Url.Action("Details", "Tour", new { id = tour.ID })" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Assets/images/@path);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">@(tour.Name.Length > 20 ? @tour.Name.Substring(0, 20) + ". . ." : @tour.Name)</a></h3>
+
+                                            <p class="rate">
+
+                                                @{
+                                                    if (tour.rating != null)
+                                                    {
+
+                                                        double rating10 = tour.rating.GetValueOrDefault() / 2.0;
+                                                        double rating5 = Math.Floor(rating10);
+                                                        for (int j = 0; j < rating5; j++)
+                                                        {
+                                                            <i class="icon-star"></i>
+                                                        }
+                                                        double decimalPart = rating10 - rating5;
+                                                        if (decimalPart > 0)
+                                                        {
+                                                            <i class="icon-star-half"></i>
+                                                            for (int j = 0; j < (5 - rating5 - 1); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int j = 0; j < (5 - rating5); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        <span>@tour.rating</span>
+                                                    }
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price">@string.Format("{0:#,0}", @tour.PriceForAdult) VNĐ</span>
+                                        </div>
+                                    </div>
+                                    <p style="height:70px">@(tour.Description.Length > 50 ? @tour.Description.Substring(0, 50) + ". . ." : @tour.Description)</p>
+                                    <p class="days"><span>@((tour.TimeEnd - tour.TimeBegin).Days+1) Ngày</span></p>
+                                    <hr>
+                                    <p class="bottom-area d-flex">
+                                        <span><i class="icon-map-o"></i> Số chỗ còn trống : @tour.SeatsRemaining </span>
+                                        <span class="ml-auto"><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">Khám Phá </a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="destination d-md-flex flex-column-reverse">
+                                @{
+                                    string path;
+
+                                    if (@tour.tbl_Image != null && tour.tbl_Image.Count > 0)
+                                    {
+                                        path = @tour.tbl_Image.FirstOrDefault().Path;
+
+                                    }
+                                    else
+                                    {
+                                        path = "error.jpg";
+
+                                    }
+                                }
+                                <a href="@Url.Action("Details", "Tour", new { id = tour.ID })" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Assets/images/@path);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">@(tour.Name.Length > 20 ? @tour.Name.Substring(0, 20) + ". . ." : @tour.Name)</a></h3>
+
+                                            <p class="rate">
+
+                                                @{
+                                                    if (tour.rating != null)
+                                                    {
+
+                                                        double rating10 = tour.rating.GetValueOrDefault() / 2.0;
+                                                        double rating5 = Math.Floor(rating10);
+                                                        for (int j = 0; j < rating5; j++)
+                                                        {
+                                                            <i class="icon-star"></i>
+                                                        }
+                                                        double decimalPart = rating10 - rating5;
+                                                        if (decimalPart > 0)
+                                                        {
+                                                            <i class="icon-star-half"></i>
+                                                            for (int j = 0; j < (5 - rating5 - 1); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int j = 0; j < (5 - rating5); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        <span>@tour.rating</span>
+                                                    }
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price">@string.Format("{0:#,0}", @tour.PriceForAdult) VNĐ</span>
+                                        </div>
+                                    </div>
+                                    <p style="height:70px">@(tour.Description.Length > 50 ? @tour.Description.Substring(0, 50) + ". . ." : @tour.Description)</p>
+                                    <p class="days"><span>@((tour.TimeEnd - tour.TimeBegin).Days +1) Ngày</span></p>
+                                    <hr>
+                                    <p class="bottom-area d-flex">
+                                        <span><i class="icon-map-o"></i> Số chỗ còn trống : @tour.SeatsRemaining </span>
+                                        <span class="ml-auto"><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">Khám Phá </a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                }
+                count++;
+            }
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(/Assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="100000">0</strong>
+                                <span>Happy Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="40000">0</strong>
+                                <span>Destination Places</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="87000">0</strong>
+                                <span>Hotels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center">
+                            <div class="text">
+                                <strong class="number" data-number="56400">0</strong>
+                                <span>Restaurant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4"><strong>Khách Sạn</strong> Phổ Biến Nhất</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            @{int i = 0;}
+            @foreach (var hotel in Model.Hotel)
+            {
+
+                if (i > 4)
+                {
+                    break;
+                }
+                else
+                {
+                    string path;
+
+                    if (hotel.tbl_ImageHotel != null && hotel.tbl_ImageHotel.Count > 0)
+                    {
+                        path = hotel.tbl_ImageHotel.FirstOrDefault().Path;
+
+                    }
+                    else
+                    {
+                        path = "error.jpg";
+
+                    }
+                    if (i % 2 == 0)
+                    {
+
+                        <div class="col-sm col-md-6 col-lg ftco-animate">
+                            <div class="destination d-md-flex flex-column-reverse">
+                                <a href="@Url.Action("Details","HotelDetails",new {id=hotel.ID })" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Assets/images/@path);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="#">@hotel.Name</a></h3>
+                                            <p class="rate">
+                                                @{
+                                                    if (hotel.Rating != null)
+                                                    {
+
+                                                        double rating10 = hotel.Rating.GetValueOrDefault() / 2.0;
+                                                        double rating5 = Math.Floor(rating10);
+                                                        for (int j = 0; j < rating5; j++)
+                                                        {
+                                                            <i class="icon-star"></i>
+                                                        }
+                                                        double decimalPart = rating10 - rating5;
+                                                        if (decimalPart > 0)
+                                                        {
+                                                            <i class="icon-star-half"></i>
+                                                            for (int j = 0; j < (5 - rating5 - 1); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int j = 0; j < (5 - rating5); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        <span>@hotel.Rating</span>
+                                                    }
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price per-price">@string.Format("{0:#,0}", hotel.Price)<br><small>/Đêm</small></span>
+                                        </div>
+                                    </div>
+                                    <p>@hotel.Type</p>
+                                    <hr>
+                                    <p class="bottom-area d-flex row">
+                                        <span class="col-sm-12" style="padding-bottom: 10px"><i class="icon-map-o"></i> @hotel.Address</span>
+                                        <span class="ml-auto col-sm-12"><a href="@Url.Action("Details","HotelDetails",new {id=hotel.ID })">Đặt Ngay</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>}
+                    else
+                    {
+                        <div class="col-sm col-md-6 col-lg ftco-animate">
+                            <div class="destination">
+                                <a href="@Url.Action("Details","HotelDetails",new {id=hotel.ID })" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Assets/images/@path);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="#">@hotel.Name</a></h3>
+                                            <p class="rate">
+                                                @{
+                                                    if (hotel.Rating != null)
+                                                    {
+
+                                                        double rating10 = hotel.Rating.GetValueOrDefault() / 2.0;
+                                                        double rating5 = Math.Floor(rating10);
+                                                        for (int j = 0; j < rating5; j++)
+                                                        {
+                                                            <i class="icon-star"></i>
+                                                        }
+                                                        double decimalPart = rating10 - rating5;
+                                                        if (decimalPart > 0)
+                                                        {
+                                                            <i class="icon-star-half"></i>
+                                                            for (int j = 0; j < (5 - rating5 - 1); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int j = 0; j < (5 - rating5); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        <span>@hotel.Rating</span>
+                                                    }
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price per-price">@string.Format("{0:#,0}", @hotel.Price)<br><small>/Đêm</small></span>
+                                        </div>
+                                    </div>
+                                    <p>@hotel.Type</p>
+                                    <hr>
+                                    <p class="bottom-area d-flex row">
+                                        <span class="col-sm-12" style="padding-bottom: 10px"><i class="icon-map-o"></i> @hotel.Address</span>
+
+                                        <span class="ml-auto col-sm-12"><a href="@Url.Action("Details","HotelDetails",new {id=hotel.ID })">Đặt Ngay</a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                i++;
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+

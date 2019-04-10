@@ -1,0 +1,33 @@
+﻿using LounaTravel.EntityFramework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace LounaTravel.Models
+{
+    public class TourModel
+    {
+        private LounaTravelDbContext context = null;
+        public TourModel()
+        {
+            context = new LounaTravelDbContext();
+        }
+
+        public List<tbl_Tour> listTourHot()
+        {
+            var list = context.Database.SqlQuery<tbl_Tour>("get_List_Tour_Hot").ToList();
+
+
+            foreach (tbl_Tour tour in list)
+            {
+             
+                var listImg = context.Database.SqlQuery<tbl_Image>("loadImgByTourId", tour.ID).ToList();
+
+                tour.tbl_Image = listImg;
+                
+            }
+            return list;
+        }
+    }
+}

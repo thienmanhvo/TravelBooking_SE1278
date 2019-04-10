@@ -1,0 +1,299 @@
+﻿@*//<div class="container container-detail" id="content-login">*@
+
+<!-- Modal dang nhap -->
+<div class="modal fade" id="dangnhap">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng nhập</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <center class="col-sm-11" id="message" style="color: red;display:none">
+
+                    </center>
+                </div>
+                <div class="row  mg-bot10">
+
+                    <div class="col-sm-11">
+                        <div class="row">
+
+                            <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="usernameLogin" name="UsernameLogin" type="text" value="" placeholder="Tên Tài Khoản">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row mg-bot10">
+                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="PasswordLogin" name="PasswordLogin" type="password" value="" placeholder="Mật Khẩu:">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 20px">
+                    <div class="col-sm-offset-2 col-sm-11">
+                        <label class="mg-bot5 chuacomatkhau">
+                            Bạn chưa có tài khoản? <a href="#" data-toggle="modal" data-target="#dangky" data-dismiss="modal" class="dn-formdangky">Đăng ký ngay hoàn toàn miễn phí</a>
+                        </label>
+                        <br>
+                        <label>
+                            Quên mật khẩu? <a href="#" data-toggle="modal" data-target="#laymatkhau" class="dn-laymatkhau">Lấy lại mật khẩu</a>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="btn-dangnhap" data-backdrop="static" type="button"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng nhập</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Modal Dang ky-->
+<div class="modal fade" id="dangky">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Đăng Ký</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <!--validate all-->
+            <div class="row">
+                <center class="col-sm-11" id="outputBlank" style="color: red;display:none">
+
+                </center>
+            </div>
+            <!--validate username-->
+            <div class="row">
+                <center class="col-sm-11" id="outputUsername" style="color: red;display:none">
+
+                </center>
+            </div>
+            <div class="modal-body">
+                <div class="row  mg-bot10">
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="usernameRegister" name="usernameRegister" type="text" value="" placeholder="Tên Tài Khoản">
+                        </div>
+
+                    </div>
+                </div>
+                <!--validate password-->
+                <div class="row">
+                    <center class="col-sm-11" id="outputPass" style="color: red;display:none">
+
+                    </center>
+                </div>
+                <div class="row mg-bot10">
+                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="PasswordRegister" name="PasswordRegister" type="password" value="" placeholder="Mật Khẩu:">
+                        </div>
+                    </div>
+
+                </div>
+                <!--Validate Repassword-->
+                <div class="row">
+                    <center class="col-sm-11" id="outputPassRe" style="color: red;display:none">
+
+                    </center>
+                </div>
+                <div class="row mg-bot10">
+                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="RePasswordRegister" name="RePasswordLogin" type="password" value="" placeholder="Nhập Lại Mật Khẩu:">
+                        </div>
+                    </div>
+                </div>
+                <!--Validate lastname-->
+                <div class="row">
+                    <center class="col-sm-11" id="outputLastName" style="color: red;display:none">
+
+                    </center>
+                </div>
+                <div class="row mg-bot10">
+                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="lastName" name="lastName" type="text" value="" placeholder="Họ:">
+                        </div>
+                    </div>
+                </div>
+                <!--Validate firstname-->
+                <div class="row">
+                    <center class="col-sm-11" id="outputName" style="color: red;display:none">
+
+                    </center>
+                </div>
+                <div class="row mg-bot10">
+                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                    <div class="col-sm-11">
+                        <div class="row">
+                            <!--aria-hidden="true"-->
+                            <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                            <input class="form-control col-11" id="firstName" name="firstName" type="text" value="" placeholder="Tên:">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" id="btn-dangky" data-backdrop="static"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng Ký</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+@*<!-- The Modal -->
+    <div class="modal fade" id="dangnhap">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đăng nhập</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="row  mg-bot10">
+
+                            <div class="col-sm-10">
+                                <div class="row">
+
+                                    <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="usernameLogin" name="UsernameLogin" type="text" value="" placeholder="Tên Tài Khoản">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mg-bot10">
+                            <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="PasswordLogin" name="PasswordLogin" type="password" value="" placeholder="Mật Khẩu:">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 20px">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <label class="mg-bot5 chuacomatkhau">
+                                    Bạn chưa có tài khoản? <a href="#" data-toggle="modal" data-target="#dangky" data-dismiss="modal" class="dn-formdangky">Đăng ký ngay hoàn toàn miễn phí</a>
+                                </label>
+                                <br>
+                                <label>
+                                    Quên mật khẩu? <a href="#" data-toggle="modal" data-target="#laymatkhau" class="dn-laymatkhau">Lấy lại mật khẩu</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-danger" id="btn-dangnhap" data-toggle="modal" data-backdrop="static" type="button" data-dismiss="modal"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng nhập</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dangky">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đăng Ký</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="modal-body">
+                        <div class="row  mg-bot10">
+
+                            <div class="col-sm-10">
+                                <div class="row">
+
+                                    <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="EmailRegister" name="UsernameLogin" type="text" value="" placeholder="Tên Tài Khoản">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mg-bot10">
+                            <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="PasswordRegister" name="PasswordLogin" type="password" value="" placeholder="Mật Khẩu:">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mg-bot10">
+                            <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="RePasswordRegister" name="RePasswordLogin" type="password" value="" placeholder="Nhập Lại Mật Khẩu:">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mg-bot10">
+                            <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="lastName" name="lastName" type="text" value="" placeholder="Họ:">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mg-bot10">
+                            <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <!--aria-hidden="true"-->
+                                    <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                                    <input class="form-control col-11" id="firstName" name="firstName" type="text" value="" placeholder="Tên:">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng ký</button>
+                </div>
+
+            </div>
+        </div>
+    </div>*@
+
+

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LounaTravelDbContext-Web.config Connection String" description="LounaTravelDbContext Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/EntityFramework.LounaTravelDbContext.csdl|res://*/EntityFramework.LounaTravelDbContext.ssdl|res://*/EntityFramework.LounaTravelDbContext.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=THIENNBSE63207\SQLEXPRESS;initial catalog=TravelDB;user id=sa;password=080297;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\SE1278\\cn5\\PRN292-C\#\\LonThien\\LounaTravel\\LounaTravel\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LounaTravelDbContext']/@connectionString" />
+  </parameter>
+</parameters>

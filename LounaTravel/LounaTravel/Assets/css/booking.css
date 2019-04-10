@@ -1,0 +1,68 @@
+﻿.tour-info-left-frame img {
+    height: 370px;
+}
+
+.f-right {
+    float: right;
+}
+
+.f-left {
+    float: left;
+}
+
+.tour-info-right-frame {
+    border: 1px gainsboro solid;
+}
+
+.tour-info-right-frame1 {
+    padding: 2%;
+    border-bottom: 1px gainsboro solid ;
+}
+d
+.tour-info-right-frame2 {
+    /*padding: 10px;*/
+    border-top: 1px gainsboro solid;
+}
+
+.chuy {
+    border-top: 1px gainsboro solid;
+    padding: 2%;
+}
+
+.tour-info-left {
+    width: 50%;
+    border: 1px gainsboro solid;
+}
+
+.tour-info-right {
+    width: 50%;
+    border: 1px gainsboro solid;
+    height: 52px;
+    line-height: 50px;
+    font-size: 17px;
+    margin: 0;
+    text-align: center;
+    background-color: #bd2130;
+    color: white;
+    font-weight: 500;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 24px;
+    color: #fc6600;
+}
+
+.mg-bot5 {
+    margin-bottom: 5px;
+}
+
+.thongtin input {
+    font-size: 15px;
+    border-radius: 7px;
+}
+
+.thongtin select {
+    font-size: 15px;
+    border-radius: 7px;
+}

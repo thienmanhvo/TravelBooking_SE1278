@@ -1,0 +1,249 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model LounaTravel.EntityFramework.ListContainerTravel
+
+@{
+    /**/
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<script>
+    function ValidationSearchTour() {
+        var fromPlace = document.getElementById("txtFromPlace");
+        if (fromPlace.value != 0) {
+            return true;
+        }
+        alert('Bạn cần chọn nơi khởi hành');
+        return false;
+
+    }
+</script>
+
+
+<div id="bg-image" class="hero-wrap js-fullheight" style="background-image: url('/Assets/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="/Home/Index">Trang Chủ</a></span> <span>Du Lịch</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Điểm Đến</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 sidebar order-md-last ftco-animate">
+                <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Tìm Kiếm</h3>
+
+
+                    <form action="Search" method="post" onsubmit="return ValidationSearchTour()">
+                        @{
+                            var dateTime = DateTime.Now.ToShortDateString();
+                        }
+
+                        <div class="fields">
+                            <div class="form-group">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select name="txtFromPlace" id="txtFromPlace" class="form-control">
+                                        <option value="0">Nơi Khởi Hành</option>
+                                        @foreach (var fromPlace in Model.listComboBoxFromPlace)
+                                        {
+                                            <option value="@fromPlace.CityID">@fromPlace.CityName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select name="txtToPlace" id="" class="form-control">
+                                        <option value="0">Nơi Đến </option>
+                                        @foreach (var toPlace in Model.listComboBoxToPlace)
+                                        {
+                                            <option value="@toPlace.CityID">@toPlace.CityName</option>
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Ngày Khởi Hành" name="timeBegin" value="@dateTime">
+                            </div>
+                            <div class="form-field">
+                                <div class="select-wrap">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select name="traveler" id="" class="form-control">
+                                        <option value="1">Số Người</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="range-slider">
+                                    @*<span>
+                                            <input type="number" value="25000" min="0" max="120000" />	-
+                                            <input type="number" value="50000" min="0" max="120000" />
+                                        </span>
+                                        <input value="1000" min="0" max="120000" step="500" type="range" />
+                                        <input value="50000" min="0" max="120000" step="500" type="range" />*@
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                @*<div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Star Rating</h3>
+                    <form method="post" class="star-rating">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">
+                                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
+                            </label>
+                        </div>
+                    </form>
+                </div>*@
+            </div><!-- END-->
+            <div class="col-lg-9">
+                <div class="row">
+
+                    <!-- format for container tour items -->
+                    @foreach (var tour in Model.Tour)
+                    {
+                        string path;
+
+                        if (@tour.tbl_Image != null && tour.tbl_Image.Count > 0)
+                        {
+                            path = @tour.tbl_Image.FirstOrDefault().Path;
+
+                        }
+                        else
+                        {
+                            path = "error.jpg";
+
+                        }
+
+
+                        <div class="col-sm col-md-6 col-lg-4 ftco-animate">
+                            <div class="destination">
+                                <a href="@Url.Action("Details", "Tour", new { id = tour.ID })" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/Assets/images/@path);">
+                                    <div class="icon d-flex justify-content-center align-items-center">
+                                        <span class="icon-link"></span>
+                                    </div>
+                                </a>
+                                <div class="text p-3">
+                                    <div class="d-flex">
+                                        <div class="one">
+                                            <h3><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">@(tour.Name.Length > 20 ? @tour.Name.Substring(0, 20) + ". . ." : @tour.Name)</a></h3>
+
+                                            <p class="rate">
+
+                                                @{
+                                                    if (tour.rating != null)
+                                                    {
+
+                                                        double rating10 = tour.rating.GetValueOrDefault() / 2.0;
+                                                        double rating5 = Math.Floor(rating10);
+                                                        for (int j = 0; j < rating5; j++)
+                                                        {
+                                                            <i class="icon-star"></i>
+                                                        }
+                                                        double decimalPart = rating10 - rating5;
+                                                        if (decimalPart > 0)
+                                                        {
+                                                            <i class="icon-star-half"></i>
+                                                            for (int j = 0; j < (5 - rating5 - 1); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            for (int j = 0; j < (5 - rating5); j++)
+                                                            {
+                                                                <i class="icon-star-o"></i>
+                                                            }
+                                                        }
+                                                        <span>@tour.rating</span>
+                                                    }
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="two">
+                                            <span class="price">@string.Format("{0:#,0}", @tour.PriceForAdult) VNĐ</span>
+                                        </div>
+                                    </div>
+                                    <p style="height:70px">@(tour.Description.Length > 50 ? @tour.Description.Substring(0, 50) + ". . ." : @tour.Description)</p>
+                                    <p class="days"><span>@((tour.TimeEnd - tour.TimeBegin).Days+1) Ngày</span></p>
+                                    <hr>
+                                    <p class="bottom-area d-flex">
+                                        <span><i class="icon-map-o"></i> Số chỗ còn trống : @tour.SeatsRemaining </span>
+                                        <span class="ml-auto"><a href="@Url.Action("Details", "Tour", new { id = tour.ID })">Khám Phá </a></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+
+                            <ul>
+                                <li> @Html.PagedListPager(Model.Tour, page => Url.Action("Tour", new { page }))</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- .col-md-8 -->
+        </div>
+    </div>
+</section> <!-- .section -->

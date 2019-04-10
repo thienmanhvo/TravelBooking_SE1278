@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="Sex" Type="bit" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Booking">
+    <Key>
+      <PropertyRef Name="BookingID" />
+    </Key>
+    <Property Name="BookingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalMoney" Type="float" />
+    <Property Name="DateCreate" Type="datetime" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="NumOfKid" Type="int" />
+    <Property Name="NumOfAldut" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="Phone" Type="varchar" MaxLength="13" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="TourID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityLocation" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherDetails" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegionID" Type="int" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Convenient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Convenient" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="isDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_ConvenientHotel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HotelID" Type="int" />
+    <Property Name="ConvenientID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryRegionID" Type="int" Nullable="false" />
+    <Property Name="Population" Type="int" Nullable="false" />
+    <Property Name="Language" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MainReligion" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherDetails" Type="nvarchar" MaxLength="500" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_FeedBack">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FeedBackContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="ReplyTo" Type="int" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="TourID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminID" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCreate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Flight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateGo" Type="datetime" Nullable="false" />
+    <Property Name="DateBack" Type="datetime" Nullable="false" />
+    <Property Name="CodeGo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CodeBack" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateGoArrival" Type="datetime" Nullable="false" />
+    <Property Name="DateBackArrival" Type="datetime" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Hotel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="13" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoomNumber" Type="int" />
+    <Property Name="isHot" Type="bit" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Rating" Type="int" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="CheckIn" Type="datetime" />
+    <Property Name="CheckOut" Type="datetime" />
+    <Property Name="IsParking" Type="bit" />
+    <Property Name="isCredit" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TourID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Path" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ImageHotel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HotelID" Type="int" Nullable="false" />
+    <Property Name="Path" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Metadata">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="WebName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MainOffice" Type="int" Nullable="false" />
+    <Property Name="Copyright" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Office">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="IsOfficeMain" Type="bit" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tel" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="CityID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Passenger">
+    <Key>
+      <PropertyRef Name="PassengerID" />
+    </Key>
+    <Property Name="PassengerID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="BookingID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Region">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="note" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Tour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeBegin" Type="datetime" Nullable="false" />
+    <Property Name="TimeLiving" Type="datetime" Nullable="false" />
+    <Property Name="PriceForKid" Type="float" Nullable="false" />
+    <Property Name="PriceForBaby" Type="float" Nullable="false" />
+    <Property Name="PriceForAdult" Type="float" Nullable="false" />
+    <Property Name="Vehicle" Type="nvarchar" MaxLength="50" />
+    <Property Name="TourGuideID" Type="int" Nullable="false" />
+    <Property Name="SeatsRemaining" Type="int" Nullable="false" />
+    <Property Name="TotalSeats" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsSale" Type="int" />
+    <Property Name="TravelTypeID" Type="int" Nullable="false" />
+    <Property Name="fromPlace" Type="int" Nullable="false" />
+    <Property Name="toPlace" Type="int" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="isHot" Type="bit" />
+    <Property Name="rating" Type="int" />
+    <Property Name="FlightID" Type="varchar" MaxLength="100" />
+    <Property Name="GroupUpPlace" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="GroupUpTime" Type="datetime" Nullable="false" />
+    <Property Name="MeetingPlace" Type="nvarchar" MaxLength="100" />
+    <Property Name="MeetingTime" Type="datetime" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_TourDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="DateContent" Type="nvarchar" MaxLength="4000" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="TourID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TourGuide">
+    <Key>
+      <PropertyRef Name="TourGuideID" />
+    </Key>
+    <Property Name="TourGuideID" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="13" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_TourHotel">
+    <Key>
+      <PropertyRef Name="HotelID" />
+      <PropertyRef Name="TourID" />
+    </Key>
+    <Property Name="HotelID" Type="int" Nullable="false" />
+    <Property Name="TourID" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Travel_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_User">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Sex" Type="bit" />
+    <Property Name="isDelete" Type="bit" Nullable="false" />
+    <Property Name="Birthday" Type="date" />
+  </EntityType>
+  <Association Name="FK_tbl_Booking_tbl_Tour">
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="1" />
+    <End Role="tbl_Booking" Type="Self.tbl_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Tour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_Booking">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_City_tbl_Region">
+    <End Role="tbl_Region" Type="Self.tbl_Region" Multiplicity="0..1" />
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Region">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_City">
+        <PropertyRef Name="RegionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ConvenientHotel_tbl_Convenient">
+    <End Role="tbl_Convenient" Type="Self.tbl_Convenient" Multiplicity="0..1" />
+    <End Role="tbl_ConvenientHotel" Type="Self.tbl_ConvenientHotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Convenient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_ConvenientHotel">
+        <PropertyRef Name="ConvenientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ConvenientHotel_tbl_Hotel">
+    <End Role="tbl_Hotel" Type="Self.tbl_Hotel" Multiplicity="0..1" />
+    <End Role="tbl_ConvenientHotel" Type="Self.tbl_ConvenientHotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Hotel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_ConvenientHotel">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_FeedBack_tbl_Admin">
+    <End Role="tbl_Admin" Type="Self.tbl_Admin" Multiplicity="0..1" />
+    <End Role="tbl_FeedBack" Type="Self.tbl_FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admin">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_FeedBack">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_FeedBack_tbl_FeedBack1">
+    <End Role="tbl_FeedBack" Type="Self.tbl_FeedBack" Multiplicity="0..1" />
+    <End Role="tbl_FeedBack1" Type="Self.tbl_FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_FeedBack">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_FeedBack1">
+        <PropertyRef Name="ReplyTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_FeedBack_tbl_Tour">
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="1" />
+    <End Role="tbl_FeedBack" Type="Self.tbl_FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Tour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_FeedBack">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_FeedBack_tbl_User">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+    <End Role="tbl_FeedBack" Type="Self.tbl_FeedBack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="tbl_FeedBack">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Hotel_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="1" />
+    <End Role="tbl_Hotel" Type="Self.tbl_Hotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Hotel">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Image_tbl_Tour1">
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="1" />
+    <End Role="tbl_Image" Type="Self.tbl_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Tour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_Image">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ImageHotel_tbl_Hotel">
+    <End Role="tbl_Hotel" Type="Self.tbl_Hotel" Multiplicity="1" />
+    <End Role="tbl_ImageHotel" Type="Self.tbl_ImageHotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Hotel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_ImageHotel">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Metadata_tbl_Office">
+    <End Role="tbl_Office" Type="Self.tbl_Office" Multiplicity="1" />
+    <End Role="tbl_Metadata" Type="Self.tbl_Metadata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Office">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_Metadata">
+        <PropertyRef Name="MainOffice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Office_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="0..1" />
+    <End Role="tbl_Office" Type="Self.tbl_Office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Office">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Order_tbl_User">
+    <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="1" />
+    <End Role="tbl_Booking" Type="Self.tbl_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_User">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="tbl_Booking">
+        <PropertyRef Name="Username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Passenger_tbl_Booking">
+    <End Role="tbl_Booking" Type="Self.tbl_Booking" Multiplicity="1" />
+    <End Role="tbl_Passenger" Type="Self.tbl_Passenger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Booking">
+        <PropertyRef Name="BookingID" />
+      </Principal>
+      <Dependent Role="tbl_Passenger">
+        <PropertyRef Name="BookingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Region_tbl_Country">
+    <End Role="tbl_Country" Type="Self.tbl_Country" Multiplicity="0..1" />
+    <End Role="tbl_Region" Type="Self.tbl_Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="tbl_Region">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Tour_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="1" />
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Tour">
+        <PropertyRef Name="fromPlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Tour_tbl_City1">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="1" />
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_Tour">
+        <PropertyRef Name="toPlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TourDetail_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="1" />
+    <End Role="tbl_TourDetail" Type="Self.tbl_TourDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="tbl_TourDetail">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TourDetail_tbl_Tour">
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="1" />
+    <End Role="tbl_TourDetail" Type="Self.tbl_TourDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Tour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_TourDetail">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TourHotel_tbl_Hotel">
+    <End Role="tbl_Hotel" Type="Self.tbl_Hotel" Multiplicity="1" />
+    <End Role="tbl_TourHotel" Type="Self.tbl_TourHotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Hotel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_TourHotel">
+        <PropertyRef Name="HotelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_TourHotel_tbl_Tour">
+    <End Role="tbl_Tour" Type="Self.tbl_Tour" Multiplicity="1" />
+    <End Role="tbl_TourHotel" Type="Self.tbl_TourHotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Tour">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tbl_TourHotel">
+        <PropertyRef Name="TourID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="db_Get_All_Hotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="db_Get_City_By_CityID_From_tblHotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="db_Get_Image_By_HotelID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="db_Get_List_ComboBox_ToPlace" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="db_Get_List_Hotel_Hot_Details" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="db_Get_List_Search_Hotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CheckIn" Type="date" Mode="In" />
+    <Parameter Name="CheckOut" Type="date" Mode="In" />
+    <Parameter Name="CityID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="db_Get_List_Search_Tour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fromPlace" Type="int" Mode="In" />
+    <Parameter Name="toPlace" Type="int" Mode="In" />
+    <Parameter Name="timeBegin" Type="datetime" Mode="In" />
+    <Parameter Name="seatsRemaining" Type="int" Mode="In" />
+  </Function>
+  <Function Name="get_All_Tour_Current" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="get_List_Tour_Hot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getListHotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Load_Image_Tour_Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TourID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="load_img_hotel_by_HotelID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="loadImgByTourId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TourID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGet_FeedBack_By_TourID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tourID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGet_Hotel_by_Tour_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGet_Reply_By_FeedBackID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="spGet_Tour_byID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="TravelDBModelStoreContainer">
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Booking" EntityType="Self.tbl_Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_City" EntityType="Self.tbl_City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Convenient" EntityType="Self.tbl_Convenient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ConvenientHotel" EntityType="Self.tbl_ConvenientHotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Country" EntityType="Self.tbl_Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_FeedBack" EntityType="Self.tbl_FeedBack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Flight" EntityType="Self.tbl_Flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hotel" EntityType="Self.tbl_Hotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Image" EntityType="Self.tbl_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ImageHotel" EntityType="Self.tbl_ImageHotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Metadata" EntityType="Self.tbl_Metadata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Office" EntityType="Self.tbl_Office" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Passenger" EntityType="Self.tbl_Passenger" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Region" EntityType="Self.tbl_Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Tour" EntityType="Self.tbl_Tour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TourDetail" EntityType="Self.tbl_TourDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TourGuide" EntityType="Self.tbl_TourGuide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TourHotel" EntityType="Self.tbl_TourHotel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Travel_Type" EntityType="Self.tbl_Travel_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_Booking_tbl_Tour" Association="Self.FK_tbl_Booking_tbl_Tour">
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_City_tbl_Region" Association="Self.FK_tbl_City_tbl_Region">
+      <End Role="tbl_Region" EntitySet="tbl_Region" />
+      <End Role="tbl_City" EntitySet="tbl_City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ConvenientHotel_tbl_Convenient" Association="Self.FK_tbl_ConvenientHotel_tbl_Convenient">
+      <End Role="tbl_Convenient" EntitySet="tbl_Convenient" />
+      <End Role="tbl_ConvenientHotel" EntitySet="tbl_ConvenientHotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ConvenientHotel_tbl_Hotel" Association="Self.FK_tbl_ConvenientHotel_tbl_Hotel">
+      <End Role="tbl_Hotel" EntitySet="tbl_Hotel" />
+      <End Role="tbl_ConvenientHotel" EntitySet="tbl_ConvenientHotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_FeedBack_tbl_Admin" Association="Self.FK_tbl_FeedBack_tbl_Admin">
+      <End Role="tbl_Admin" EntitySet="tbl_Admin" />
+      <End Role="tbl_FeedBack" EntitySet="tbl_FeedBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_FeedBack_tbl_FeedBack1" Association="Self.FK_tbl_FeedBack_tbl_FeedBack1">
+      <End Role="tbl_FeedBack" EntitySet="tbl_FeedBack" />
+      <End Role="tbl_FeedBack1" EntitySet="tbl_FeedBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_FeedBack_tbl_Tour" Association="Self.FK_tbl_FeedBack_tbl_Tour">
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+      <End Role="tbl_FeedBack" EntitySet="tbl_FeedBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_FeedBack_tbl_User" Association="Self.FK_tbl_FeedBack_tbl_User">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_FeedBack" EntitySet="tbl_FeedBack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Hotel_tbl_City" Association="Self.FK_tbl_Hotel_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Hotel" EntitySet="tbl_Hotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Image_tbl_Tour1" Association="Self.FK_tbl_Image_tbl_Tour1">
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+      <End Role="tbl_Image" EntitySet="tbl_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ImageHotel_tbl_Hotel" Association="Self.FK_tbl_ImageHotel_tbl_Hotel">
+      <End Role="tbl_Hotel" EntitySet="tbl_Hotel" />
+      <End Role="tbl_ImageHotel" EntitySet="tbl_ImageHotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Metadata_tbl_Office" Association="Self.FK_tbl_Metadata_tbl_Office">
+      <End Role="tbl_Office" EntitySet="tbl_Office" />
+      <End Role="tbl_Metadata" EntitySet="tbl_Metadata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Office_tbl_City" Association="Self.FK_tbl_Office_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Office" EntitySet="tbl_Office" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Order_tbl_User" Association="Self.FK_tbl_Order_tbl_User">
+      <End Role="tbl_User" EntitySet="tbl_User" />
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Passenger_tbl_Booking" Association="Self.FK_tbl_Passenger_tbl_Booking">
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+      <End Role="tbl_Passenger" EntitySet="tbl_Passenger" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Region_tbl_Country" Association="Self.FK_tbl_Region_tbl_Country">
+      <End Role="tbl_Country" EntitySet="tbl_Country" />
+      <End Role="tbl_Region" EntitySet="tbl_Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Tour_tbl_City" Association="Self.FK_tbl_Tour_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Tour_tbl_City1" Association="Self.FK_tbl_Tour_tbl_City1">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TourDetail_City" Association="Self.FK_tbl_TourDetail_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_TourDetail" EntitySet="tbl_TourDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TourDetail_tbl_Tour" Association="Self.FK_tbl_TourDetail_tbl_Tour">
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+      <End Role="tbl_TourDetail" EntitySet="tbl_TourDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TourHotel_tbl_Hotel" Association="Self.FK_tbl_TourHotel_tbl_Hotel">
+      <End Role="tbl_Hotel" EntitySet="tbl_Hotel" />
+      <End Role="tbl_TourHotel" EntitySet="tbl_TourHotel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_TourHotel_tbl_Tour" Association="Self.FK_tbl_TourHotel_tbl_Tour">
+      <End Role="tbl_Tour" EntitySet="tbl_Tour" />
+      <End Role="tbl_TourHotel" EntitySet="tbl_TourHotel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

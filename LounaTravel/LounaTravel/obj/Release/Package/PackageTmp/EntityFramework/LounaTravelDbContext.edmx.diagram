@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="10cea0c172354240856b36d1dd87e6bc" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Admin" Width="1.5" PointX="15.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Booking" Width="1.5" PointX="15" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_City" Width="1.5" PointX="11.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Convenient" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Country" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_FeedBack" Width="1.5" PointX="18" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Flight" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Image" Width="1.5" PointX="15" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_ImageHotel" Width="1.5" PointX="18.125" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Office" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Region" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_TourDetail" Width="1.5" PointX="22.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_TourGuide" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Travel_Type" Width="1.5" PointX="10.5" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_User" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_FeedBack_tbl_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Order_tbl_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_City_tbl_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Office_tbl_City" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_TourDetail_City" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Region_tbl_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_FeedBack_tbl_FeedBack1" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_FeedBack_tbl_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TravelDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Passenger" Width="1.5" PointX="17.625" PointY="7.125" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Passenger_tbl_Booking" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Hotel" Width="1.5" PointX="21.875" PointY="2.375" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Metadata" Width="1.5" PointX="3.375" PointY="0.75" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Hotel_tbl_City" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_ImageHotel_tbl_Hotel" />
+        <AssociationConnector Association="TravelDBModel.tbl_ConvenientHotel" />
+        <EntityTypeShape EntityType="TravelDBModel.tbl_Tour" Width="1.5" PointX="21.375" PointY="8.25" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Booking_tbl_Tour" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Tour_tbl_City" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_FeedBack_tbl_Tour" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Tour_tbl_Flight" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Image_tbl_Tour1" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Tour_tbl_Category1" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_Tour_tbl_TourGuide" />
+        <AssociationConnector Association="TravelDBModel.FK_tbl_TourDetail_tbl_Tour" />
+        <AssociationConnector Association="TravelDBModel.tbl_TourHotel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,22 @@
+﻿@model LounaTravel.EntityFramework.tbl_User
+
+
+    <a onclick="showUserNav()" id="myBtn" class="nav-link"><i class="fas fa-user"></i></a>
+    <ul class="dropdown-content" style="list-style:none" id="user-nav">
+        <li>
+            <a style="cursor: pointer" data-toggle="modal" data-target="#chinhsua">
+                Chỉnh Sửa
+            </a>
+        </li>
+        <li>
+            <a style="cursor: pointer;color:white" href="@Url.Action("Details" , "Booking",new { username = Model.Username })">
+                Lịch sử
+            </a>
+        </li>
+        <li>
+            <a style="cursor: pointer" id="dangxuat">
+                Đăng xuất
+            </a>
+        </li>
+
+    </ul>

@@ -1,0 +1,647 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Adventure - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="~/Assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/animate.css">
+    <link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Assets/css/aos.css">
+    <link rel="stylesheet" href="~/Assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="~/Assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assets/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.structure.css" />
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.structure.min.css" />
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css" />
+
+    <link rel="stylesheet" href="~/Assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assets/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <link rel="stylesheet" href="~/Assets/font-awesome-4.7.0/css/font-awesome.css" />
+    <script src="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/Assets/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script src="~/Assets/js/range.js"></script>
+    <script src="~/Assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="~/Assets/css/detail.css">
+    <script>
+        //show nut dang nhap va dang ki
+        function showUserNav() {
+            document.getElementById("user-nav").classList.toggle("show-nav");
+        }
+        $(function () {
+            $(window).on("scroll", function (e) {
+                var usernav = $('#user-nav');
+                var link = $('#bg-image').height() - 400;
+
+                if (window.pageYOffset >= link) {
+                    usernav.addClass("black-color");
+                } else {
+                    usernav.removeClass("black-color");
+                }
+            });
+        });
+        function ValidationUpdate() {
+
+            var firstName = document.getElementById("firstNameEdit");
+            var lastName = document.getElementById("lastNameEdit");
+            var email = document.getElementById("EmailEdit");
+            var phoneNumber = document.getElementById("telEdit");
+            if (firstName.value == "") {
+                alert('Bạn cần nhập first name');
+                return false;
+            }
+            if (lastName.value == "") {
+                alert('Bạn cần nhập lastname');
+                return false;
+            }
+            if (email.value == "") {
+                alert('Bạn cần nhập email');
+                return false;
+            } if (phoneNumber.value == "") {
+                alert('Bạn cần nhập Phone Number');
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            /*                background-color: #f9f9f9;*/
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 99999;
+            color: white;
+        }
+
+        /*            .dropdown:hover .dropdown-content {
+                            display: block;
+                        }*/
+        .black-color a {
+            color: black !important;
+        }
+
+        .black-color {
+            background-color: white !important;
+        }
+
+        .show-nav {
+            display: block;
+        }
+
+        .button {
+            background-color: Transparent;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+            border: none;
+        }
+
+        .noidungchuongtrinh {
+            border-top: 1px dashed #878787;
+        }
+
+        input[type=text] .id {
+            background-color: #3CBC8D;
+            color: white;
+        }
+
+        .height-30 {
+            height: 40px !important;
+        }
+
+        .font-format {
+            font-family: "Times New Roman",Times, serif !important;
+            font-weight: 600;
+        }
+    </style>
+
+</head>
+<body>
+    @{var user = (LounaTravel.EntityFramework.tbl_User)HttpContext.Current.Session["USER_LOGIN"]; }
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/Home">Luona Travel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item @(ViewBag.isActive.Equals("Home") == true ? "active" : "") "><a href="/Home/Index" class="nav-link">Trang Chủ</a></li>
+                    <li class="nav-item @(ViewBag.isActive.Equals("Places") == true ? "active" : "") "><a href="/Home/Tour" class="nav-link">Du lịch</a></li>
+                    <li class="nav-item @(ViewBag.isActive.Equals("Hotels") == true ? "active" : "") "><a href="/Home/Hotel" class="nav-link">Khách Sạn</a></li>
+                    <li class="nav-item @(ViewBag.isActive.Equals("Contact") == true ? "active" : "") "><a href="/Home/Contact" class="nav-link">Liên Hệ</a></li>
+                    <li class="nav-item dropdown" id="nav-Login">
+                        <a onclick="showUserNav()" id="myBtn" class="nav-link"><i class="fas fa-user"></i></a>
+                        <ul class="dropdown-content" style="list-style:none" id="user-nav">
+                            @if (Session["USER_LOGIN"] == null)
+                            {
+                                <li>
+                                    <a style="cursor: pointer" data-toggle="modal" data-target="#dangnhap">
+                                        Đăng nhập
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer" data-toggle="modal" data-target="#dangky">
+                                        Đăng ký
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+
+                                <li>
+
+                                    <a style="cursor: pointer" data-toggle="modal" data-target="#chinhsua">
+                                        Chỉnh Sửa
+                                    </a>
+                                </li>
+
+                                <li>
+                                    
+                                    <a style="cursor: pointer;color:white" href="@Url.Action("Details" , "Booking",new { username = user.Username })">
+                                        Lịch sử
+                                    </a>
+                                </li>
+                                <li>
+                                    <a style="cursor: pointer" id="dangxuat">
+                                        Đăng xuất
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- END nav -->
+
+
+    <script>
+        $(function () {
+            $('body').on('click', '#btn-dangky', function (e) {
+                if (!validateRes(e)) {
+                    return;
+                };
+                e.preventDefault;
+                var Username = $("#usernameRegister");
+                var Password = $("#PasswordRegister");
+                var FirstName = $("#lastName");
+                var LastName = $("#firstName");
+                var tbl_User = {
+                    Username: Username.val(),
+                    Password: Password.val(),
+                    FirstName: FirstName.val(),
+                    LastName: LastName.val(),
+                };
+                $.ajax({
+                    url: '/User/Create',
+                    type: 'POST',
+                    data: JSON.stringify(tbl_User),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.status == true) {
+                            alert(response.message);
+                            $.ajax({
+                                url: '/User/Login',
+                                type: 'POST',
+                                data: {
+                                    userName: Username.val(),
+                                    password: Password.val(),
+                                },
+                                //dataType: "json",
+                                success: function (result) {
+
+                                    if (result.status == true) {
+                                        if (window.location.href.search("/Tour/Details/") != -1) {
+                                            window.location.reload();
+                                        } else {
+                                            $("#message").hide();
+                                            $("#dangnhap").modal("hide");
+                                            setTimeout(function () {
+                                                $("#nav-Login").html(result.NavLoginSuccess);
+                                                $("#content-login").html(result.ContentLoginSuccess);
+                                            }, 500);
+                                        }
+                                    } else {
+                                        $("#message").show().text("Tên tài khoản hoặc mật khẩu không đúng.");
+                                    }
+
+                                },
+                                error: function () {
+                                    alert('Error loading profile data');
+                                }
+                            })
+                            Username.val("");
+                            Password.val("");
+                            FirstName.val("");
+                            LastName.val("");
+                            $("#RePasswordChange").val("");
+                            $("#dangky").modal("toggle");
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.message);
+                    }
+                })
+                //setTimeout(function () {
+                //    var originalModal = $('#dangky').clone();
+                //    $('#dangky').remove();
+                //    var myClone = originalModal.clone();
+                //    $('#content-login').append(myClone);
+                //}, 1000);
+
+            });
+        });
+
+    </script>
+
+
+    @RenderBody()
+
+    <section class="ftco-section ftco-degree-bg">
+        <div class="container container-detail" id="content-login">
+            @if (Session["USER_LOGIN"] == null)
+            {
+                <!--Content when didn't Login yet-->
+                <!-- Modal dang nhap -->
+                <div class="modal fade" id="dangnhap">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng nhập</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div class="row">
+                                    <center class="col-sm-11" id="message" style="color: red;display:none">
+
+                                    </center>
+                                </div>
+                                <div class="row  mg-bot10">
+
+                                    <div class="col-sm-11">
+                                        <div class="row">
+
+                                            <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="usernameLogin" name="UsernameLogin" type="text" value="" placeholder="Tên Tài Khoản">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row mg-bot10">
+                                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="PasswordLogin" name="PasswordLogin" type="password" value="" placeholder="Mật Khẩu:">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top: 20px">
+                                    <div class="col-sm-offset-2 col-sm-11">
+                                        <label class="mg-bot5 chuacomatkhau">
+                                            Bạn chưa có tài khoản? <a href="#" data-toggle="modal" data-target="#dangky" data-dismiss="modal" class="dn-formdangky">Đăng ký ngay hoàn toàn miễn phí</a>
+                                        </label>
+                                        <br>
+                                        <label>
+                                            Quên mật khẩu? <a href="#" data-toggle="modal" data-target="#laymatkhau" class="dn-laymatkhau">Lấy lại mật khẩu</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" id="btn-dangnhap" data-backdrop="static" type="button"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng nhập</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Content when Login already-->
+                <!--Modal Dang ky-->
+                <div class="modal fade" id="dangky">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng Ký</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <!--validate all-->
+                            <div class="row">
+                                <center class="col-sm-11" id="outputBlank" style="color: red;display:none">
+
+                                </center>
+                            </div>
+                            <!--validate username-->
+                            <div class="row">
+                                <center class="col-sm-11" id="outputUsername" style="color: red;display:none">
+
+                                </center>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row  mg-bot10">
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <i class="fas fa-user col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="usernameRegister" name="usernameRegister" type="text" value="" placeholder="Tên Tài Khoản">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--validate password-->
+                                <div class="row">
+                                    <center class="col-sm-11" id="outputPass" style="color: red;display:none">
+
+                                    </center>
+                                </div>
+                                <div class="row mg-bot10">
+                                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="PasswordRegister" name="PasswordRegister" type="password" value="" placeholder="Mật Khẩu:">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Validate Repassword-->
+                                <div class="row">
+                                    <center class="col-sm-11" id="outputPassRe" style="color: red;display:none">
+
+                                    </center>
+                                </div>
+                                <div class="row mg-bot10">
+                                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <i class="fas fa-lock col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="RePasswordRegister" name="RePasswordLogin" type="password" value="" placeholder="Nhập Lại Mật Khẩu:">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Validate lastname-->
+                                <div class="row">
+                                    <center class="col-sm-11" id="outputLastName" style="color: red;display:none">
+
+                                    </center>
+                                </div>
+                                <div class="row mg-bot10">
+                                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="lastName" name="lastName" type="text" value="" placeholder="Họ:">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Validate firstname-->
+                                <div class="row">
+                                    <center class="col-sm-11" id="outputName" style="color: red;display:none">
+
+                                    </center>
+                                </div>
+                                <div class="row mg-bot10">
+                                    <!--<label class="control-label col-sm-2 mg-bot5" for="pwd">Mật khẩu:</label>-->
+                                    <div class="col-sm-11">
+                                        <div class="row">
+                                            <!--aria-hidden="true"-->
+                                            <i class="fa fa-info  col-1" style="padding-top: 20px"></i>
+                                            <input class="form-control col-11" id="firstName" name="firstName" type="text" value="" placeholder="Tên:">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger" id="btn-dangky" data-backdrop="static"><i class="fas fa-sign-in-alt" style="padding-right: 10px"></i>Đăng Ký</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <!-- Modal Chinh sua-->
+                <div class="modal fade" id="chinhsua">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Chỉnh Sửa Thông Tin</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Modal body -->
+                            @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { onsubmit = "return ValidationUpdate()" }))
+                            {
+
+
+                                <div class="modal-body">
+                                    <div class="row  mg-bot10">
+
+                                        <div class="col-sm-11">
+                                            <div class="col-12"> <i class="fas fa-user" style="padding-top: 20px"></i> Tên tài khoản:</div>
+                                            <div class="row">
+                                                <div class="col-1"></div>
+                                                <input style="pointer-events:none; background-color: rgba(52, 44, 23, 0.2)!important;" class="form-control col-11 id height-30" name="usernameEdit" value="@user.Username" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row  mg-bot10">
+                                        <div class="col-sm-11">
+                                            <div class="col-12"><i class="fas fa-envelope " style="padding-top: 20px"></i> Email:</div>
+                                            <div class="row">
+                                                <div class="col-1"></div>
+                                                <input class="form-control col-11 height-30 " id="EmailEdit" name="EmailEdit" type="text" value="@user.Email" placeholder="Email" />
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="row mg-bot10">
+                                        <div class="col-sm-11">
+                                            <div class="col-12"><i class="fa fa-info" style="padding-top: 20px"></i> Họ:</div>
+                                            <div class="row">
+                                                <div class="col-1"></div>
+                                                <input class="form-control col-11 height-30 " id="lastNameEdit" name="lastNameEdit" type="text" value="@user.LastName" placeholder="Họ:" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mg-bot10">
+                                        <div class="col-sm-11">
+                                            <div class="col-12"> <i class="fa fa-info" style="padding-top: 20px"></i> Tên:</div>
+                                            <div class="row">
+                                                <div class="col-1"></div>
+                                                <input class="form-control col-11 height-30 " id="firstNameEdit" name="firstNameEdit" type="text" value="@user.FirstName" placeholder="Tên:" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mg-bot10">
+                                        <div class="col-sm-11">
+                                            <div class="col-12"> <i class="fa fa-info" style="padding-top: 20px"></i> Số điện thoại:</div>
+                                            <div class="row">
+                                                <div class="col-1"></div>
+                                                <input class="form-control col-11 height-30 " id="telEdit" name="telEdit" type="text" value="@user.PhoneNumber" placeholder="Số điện thoại:" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger"><i class="fas fa-sign-in-alt" id="btn-chinhsua" style="padding-right: 10px"></i>Lưu</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    @*<section class="ftco-section-parallax">
+        <div class="parallax-img d-flex align-items-center">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                        <h2>Subcribe to our Newsletter</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+                        <div class="row d-flex justify-content-center mt-5">
+                            <div class="col-md-8">
+                                <form action="#" class="subscribe-form">
+                                    <div class="form-group d-flex">
+                                        <input type="text" class="form-control" placeholder="Enter email address">
+                                        <input type="submit" value="Subscribe" class="submit px-3">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Louna Travel</h2>
+                        <p>Với sứ mệnh giúp khách du lịch trải nghiệm thế giới dễ dàng, Louna Travel đầu tư vào công nghệ kỹ thuật số nhằm giúp du lịch trở nên dễ dàng hơn</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                            <li class="ftco-animate"><a href=""><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href=""><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href=""><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Liên Hệ</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Công Viên Phần Mềm Quang Trung Trung , Tp. Hồ Chí Minh , Việt Nam</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">0969668834 - 0333577999 - 083383838</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">TeamThienProVipMaiLinhNguKhoiNhuHach@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/groups/1758211647810233/" target="_blank">LTK Group</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+    <script src="~/Assets/js/userAjaxController.js"></script>
+    <script src="~/Assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Assets/js/popper.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/jquery.easing.1.3.js"></script>
+    <script src="~/Assets/js/jquery.waypoints.min.js"></script>
+    <script src="~/Assets/js/jquery.stellar.min.js"></script>
+    <script src="~/Assets/js/owl.carousel.min.js"></script>
+    <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assets/js/aos.js"></script>
+    <script src="~/Assets/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Assets/js/bootstrap-datepicker.js"></script>
+    <script src="~/Assets/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Assets/js/google-map.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+
+</body>
+</html>

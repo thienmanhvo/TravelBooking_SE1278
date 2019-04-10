@@ -1,0 +1,153 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 7, 2019, 12:52:25 PM
+    Author     : benfi
+*/
+
+            /*ThienCreate*/
+            .horizontal-top{
+                border-top: 1px solid #bd2130;     
+            }
+            .horizontal-bottom{border-bottom: 1px solid #bd2130;}
+            .nav-content li a{
+                color: black;
+            }
+            .nav-content li a:hover{
+                color: #bd2130;
+            }
+            .sticky-content{
+                position: fixed;
+                position: sticky;
+                width: 100%;
+                z-index: 2;
+                top: 69px;
+                background-color: #efeff0;
+            }
+            .active-Content a{
+                color: #bd2130!important;
+            }
+            .songay{
+                color: #bd2130;
+            }
+            .ngay{
+                height: 40px;
+                /*background-color:  rgba(193, 87, 118, 0.2);
+                */}
+            .active-Content.ngay{
+                background-color:  rgba(193, 87, 118, 0.2);
+            }
+            .show-detail{
+                display: block;
+            }
+            /*            .show{
+                            position: static;
+                            display: block!important;
+                            clear: both;
+                            background-color: #fc6600!important;
+                            height: 500px!important;
+                        }*/
+            .tabContainer {
+                margin: 0;
+            }
+            .tabContainer .digiTabs {
+                list-style: none;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                top: 1px;
+            }
+            .tabContainer .digiTabs li {
+                float: left;
+                background-color: #e7e5df;
+                padding: 0px 20px 0px !important;
+                cursor: pointer;
+                border-bottom:none;
+                margin-right: 10px;
+                color: #801350;
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                font-size: 14px;
+
+            }
+            .tabContainer .digiTabs .selected {
+                background-color: #fff;
+                color: #393939;
+            }
+            #tabContent {
+                padding: 10px;
+                background-color: #fff;
+                overflow: hidden;
+                float: left;
+                margin-bottom: 10px;
+                border: 1px solid #e1e1e1;
+            }
+            strong{
+                color: black;
+                font-weight: bold;
+            }
+            .img-responsive{
+                height: 200px;
+                width: 100%;
+            }
+            .danhgia-avatarkhach{
+                padding: 5px 15px;
+                background-color: #cd2c24;
+                color: white;
+            }
+            .danhgia-ten{
+                color: black;
+                font-weight: bold;
+            }
+            .cam{
+                padding: 0px !important;
+                margin: 0px !important;
+                color: #c8004d;
+                font-size: 15px;
+            }
+            .nguoitraloi{
+                background-color: white;
+                border: 1px solid #e1e1e1;
+            }
+            .danhgia-avatarcty{
+                padding: 5px 15px;
+                background-color: #703777;
+                color: white;
+            }
+            .frame-nguoitraloi{
+                padding: 20px 30px 0px 30px;
+                margin-bottom: 20px;
+                font-size: 15px;
+            }
+            .clear{
+                clear: both !important;
+            }
+            .btn-traloidanhgia {
+                color: #f9be37;
+            }
+            .danhgia-nguoidung{
+                font-size: 15px;
+            }
+            .list-mien li{
+                display: inline !important;
+                padding:0 2%;
+            }
+            .row .list-mien .selected a{
+                color: red !important;
+            }
+            .row .list-mien a:hover{
+                color: red;
+            }
+            .pd-top100{
+                padding-top: 130px!important;
+            }
+            @media (max-width: 986px) {
+                #nav-top  {
+                    display: none } 
+                .hidden-xs{
+                    display: none;
+                }
+            }
+

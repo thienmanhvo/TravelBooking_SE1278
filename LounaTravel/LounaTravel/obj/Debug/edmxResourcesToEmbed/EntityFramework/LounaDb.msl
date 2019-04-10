@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TravelDBModelStoreContainer" CdmEntityContainer="LounaTravelDbContext">
+    <EntitySetMapping Name="tbl_Admin">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Admin">
+        <MappingFragment StoreEntitySet="tbl_Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Booking">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Booking">
+        <MappingFragment StoreEntitySet="tbl_Booking">
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+          <ScalarProperty Name="TotalMoney" ColumnName="TotalMoney" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="NumOfKid" ColumnName="NumOfKid" />
+          <ScalarProperty Name="NumOfAldut" ColumnName="NumOfAldut" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_City">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_City">
+        <MappingFragment StoreEntitySet="tbl_City">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CityLocation" ColumnName="CityLocation" />
+          <ScalarProperty Name="OtherDetails" ColumnName="OtherDetails" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Convenient">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Convenient">
+        <MappingFragment StoreEntitySet="tbl_Convenient">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Convenient" ColumnName="Convenient" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ConvenientHotel">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_ConvenientHotel">
+        <MappingFragment StoreEntitySet="tbl_ConvenientHotel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="ConvenientID" ColumnName="ConvenientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Country">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Country">
+        <MappingFragment StoreEntitySet="tbl_Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="CountryRegionID" ColumnName="CountryRegionID" />
+          <ScalarProperty Name="Population" ColumnName="Population" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="MainReligion" ColumnName="MainReligion" />
+          <ScalarProperty Name="OtherDetails" ColumnName="OtherDetails" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FeedBack">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_FeedBack">
+        <MappingFragment StoreEntitySet="tbl_FeedBack">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FeedBackContent" ColumnName="FeedBackContent" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Flight">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Flight">
+        <MappingFragment StoreEntitySet="tbl_Flight">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateGo" ColumnName="DateGo" />
+          <ScalarProperty Name="DateBack" ColumnName="DateBack" />
+          <ScalarProperty Name="CodeGo" ColumnName="CodeGo" />
+          <ScalarProperty Name="CodeBack" ColumnName="CodeBack" />
+          <ScalarProperty Name="DateGoArrival" ColumnName="DateGoArrival" />
+          <ScalarProperty Name="DateBackArrival" ColumnName="DateBackArrival" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hotel">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Hotel">
+        <MappingFragment StoreEntitySet="tbl_Hotel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Image">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Image">
+        <MappingFragment StoreEntitySet="tbl_Image">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ImageHotel">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_ImageHotel">
+        <MappingFragment StoreEntitySet="tbl_ImageHotel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Metadata">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Metadata">
+        <MappingFragment StoreEntitySet="tbl_Metadata">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="WebName" ColumnName="WebName" />
+          <ScalarProperty Name="MainOffice" ColumnName="MainOffice" />
+          <ScalarProperty Name="Copyright" ColumnName="Copyright" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Office">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Office">
+        <MappingFragment StoreEntitySet="tbl_Office">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IsOfficeMain" ColumnName="IsOfficeMain" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Passenger">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Passenger">
+        <MappingFragment StoreEntitySet="tbl_Passenger">
+          <ScalarProperty Name="PassengerID" ColumnName="PassengerID" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="BookingID" ColumnName="BookingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Region">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Region">
+        <MappingFragment StoreEntitySet="tbl_Region">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="note" ColumnName="note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Tour">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Tour">
+        <MappingFragment StoreEntitySet="tbl_Tour">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
+          <ScalarProperty Name="TimeLiving" ColumnName="TimeLiving" />
+          <ScalarProperty Name="PriceForKid" ColumnName="PriceForKid" />
+          <ScalarProperty Name="PriceForBaby" ColumnName="PriceForBaby" />
+          <ScalarProperty Name="PriceForAdult" ColumnName="PriceForAdult" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="SeatsRemaining" ColumnName="SeatsRemaining" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TravelTypeID" ColumnName="TravelTypeID" />
+          <ScalarProperty Name="fromPlace" ColumnName="fromPlace" />
+          <ScalarProperty Name="toPlace" ColumnName="toPlace" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="GroupUpPlace" ColumnName="GroupUpPlace" />
+          <ScalarProperty Name="GroupUpTime" ColumnName="GroupUpTime" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TourDetail">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_TourDetail">
+        <MappingFragment StoreEntitySet="tbl_TourDetail">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DateContent" ColumnName="DateContent" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TourGuide">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_TourGuide">
+        <MappingFragment StoreEntitySet="tbl_TourGuide">
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Travel_Type">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_Travel_Type">
+        <MappingFragment StoreEntitySet="tbl_Travel_Type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_User">
+      <EntityTypeMapping TypeName="TravelDBModel.tbl_User">
+        <MappingFragment StoreEntitySet="tbl_User">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tbl_TourHotel" TypeName="TravelDBModel.tbl_TourHotel" StoreEntitySet="tbl_TourHotel">
+      <EndProperty Name="tbl_Hotel">
+        <ScalarProperty Name="ID" ColumnName="HotelID" />
+      </EndProperty>
+      <EndProperty Name="tbl_Tour">
+        <ScalarProperty Name="ID" ColumnName="TourID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_All_Hotel" FunctionName="TravelDBModel.Store.db_Get_All_Hotel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_All_Hotel_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_City_By_CityID_From_tblHotel" FunctionName="TravelDBModel.Store.db_Get_City_By_CityID_From_tblHotel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_City_By_CityID_From_tblHotel_Result">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CityLocation" ColumnName="CityLocation" />
+          <ScalarProperty Name="OtherDetails" ColumnName="OtherDetails" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_Image_By_HotelID" FunctionName="TravelDBModel.Store.db_Get_Image_By_HotelID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_Image_By_HotelID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_List_ComboBox_ToPlace" FunctionName="TravelDBModel.Store.db_Get_List_ComboBox_ToPlace">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_List_ComboBox_ToPlace_Result">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CityLocation" ColumnName="CityLocation" />
+          <ScalarProperty Name="OtherDetails" ColumnName="OtherDetails" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_List_Hotel_Hot_Details" FunctionName="TravelDBModel.Store.db_Get_List_Hotel_Hot_Details">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_List_Hotel_Hot_Details_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_List_Search_Hotel" FunctionName="TravelDBModel.Store.db_Get_List_Search_Hotel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_List_Search_Hotel_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="db_Get_List_Search_Tour" FunctionName="TravelDBModel.Store.db_Get_List_Search_Tour">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.db_Get_List_Search_Tour_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
+          <ScalarProperty Name="TimeLiving" ColumnName="TimeLiving" />
+          <ScalarProperty Name="PriceForKid" ColumnName="PriceForKid" />
+          <ScalarProperty Name="PriceForBaby" ColumnName="PriceForBaby" />
+          <ScalarProperty Name="PriceForAdult" ColumnName="PriceForAdult" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="SeatsRemaining" ColumnName="SeatsRemaining" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TravelTypeID" ColumnName="TravelTypeID" />
+          <ScalarProperty Name="fromPlace" ColumnName="fromPlace" />
+          <ScalarProperty Name="toPlace" ColumnName="toPlace" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="GroupUpPlace" ColumnName="GroupUpPlace" />
+          <ScalarProperty Name="GroupUpTime" ColumnName="GroupUpTime" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_All_Tour_Current" FunctionName="TravelDBModel.Store.get_All_Tour_Current">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.get_All_Tour_Current_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
+          <ScalarProperty Name="TimeLiving" ColumnName="TimeLiving" />
+          <ScalarProperty Name="PriceForKid" ColumnName="PriceForKid" />
+          <ScalarProperty Name="PriceForBaby" ColumnName="PriceForBaby" />
+          <ScalarProperty Name="PriceForAdult" ColumnName="PriceForAdult" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="SeatsRemaining" ColumnName="SeatsRemaining" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TravelTypeID" ColumnName="TravelTypeID" />
+          <ScalarProperty Name="fromPlace" ColumnName="fromPlace" />
+          <ScalarProperty Name="toPlace" ColumnName="toPlace" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="GroupUpPlace" ColumnName="GroupUpPlace" />
+          <ScalarProperty Name="GroupUpTime" ColumnName="GroupUpTime" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="get_List_Tour_Hot" FunctionName="TravelDBModel.Store.get_List_Tour_Hot">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.get_List_Tour_Hot_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
+          <ScalarProperty Name="TimeLiving" ColumnName="TimeLiving" />
+          <ScalarProperty Name="PriceForKid" ColumnName="PriceForKid" />
+          <ScalarProperty Name="PriceForBaby" ColumnName="PriceForBaby" />
+          <ScalarProperty Name="PriceForAdult" ColumnName="PriceForAdult" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="SeatsRemaining" ColumnName="SeatsRemaining" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TravelTypeID" ColumnName="TravelTypeID" />
+          <ScalarProperty Name="fromPlace" ColumnName="fromPlace" />
+          <ScalarProperty Name="toPlace" ColumnName="toPlace" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="GroupUpPlace" ColumnName="GroupUpPlace" />
+          <ScalarProperty Name="GroupUpTime" ColumnName="GroupUpTime" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getListHotel" FunctionName="TravelDBModel.Store.getListHotel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.getListHotel_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Load_Image_Tour_Search" FunctionName="TravelDBModel.Store.Load_Image_Tour_Search">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.Load_Image_Tour_Search_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="load_img_hotel_by_HotelID" FunctionName="TravelDBModel.Store.load_img_hotel_by_HotelID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.load_img_hotel_by_HotelID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="loadImgByTourId" FunctionName="TravelDBModel.Store.loadImgByTourId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.loadImgByTourId_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGet_FeedBack_By_TourID" FunctionName="TravelDBModel.Store.spGet_FeedBack_By_TourID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.spGet_FeedBack_By_TourID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FeedBackContent" ColumnName="FeedBackContent" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGet_Hotel_by_Tour_ID" FunctionName="TravelDBModel.Store.spGet_Hotel_by_Tour_ID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.spGet_Hotel_by_Tour_ID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+          <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+          <ScalarProperty Name="IsParking" ColumnName="IsParking" />
+          <ScalarProperty Name="isCredit" ColumnName="isCredit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGet_Reply_By_FeedBackID" FunctionName="TravelDBModel.Store.spGet_Reply_By_FeedBackID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.spGet_Reply_By_FeedBackID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FeedBackContent" ColumnName="FeedBackContent" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="TourID" ColumnName="TourID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spGet_Tour_byID" FunctionName="TravelDBModel.Store.spGet_Tour_byID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelDBModel.spGet_Tour_byID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
+          <ScalarProperty Name="TimeLiving" ColumnName="TimeLiving" />
+          <ScalarProperty Name="PriceForKid" ColumnName="PriceForKid" />
+          <ScalarProperty Name="PriceForBaby" ColumnName="PriceForBaby" />
+          <ScalarProperty Name="PriceForAdult" ColumnName="PriceForAdult" />
+          <ScalarProperty Name="Vehicle" ColumnName="Vehicle" />
+          <ScalarProperty Name="TourGuideID" ColumnName="TourGuideID" />
+          <ScalarProperty Name="SeatsRemaining" ColumnName="SeatsRemaining" />
+          <ScalarProperty Name="TotalSeats" ColumnName="TotalSeats" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TravelTypeID" ColumnName="TravelTypeID" />
+          <ScalarProperty Name="fromPlace" ColumnName="fromPlace" />
+          <ScalarProperty Name="toPlace" ColumnName="toPlace" />
+          <ScalarProperty Name="isDelete" ColumnName="isDelete" />
+          <ScalarProperty Name="isHot" ColumnName="isHot" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="GroupUpPlace" ColumnName="GroupUpPlace" />
+          <ScalarProperty Name="GroupUpTime" ColumnName="GroupUpTime" />
+          <ScalarProperty Name="MeetingPlace" ColumnName="MeetingPlace" />
+          <ScalarProperty Name="MeetingTime" ColumnName="MeetingTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

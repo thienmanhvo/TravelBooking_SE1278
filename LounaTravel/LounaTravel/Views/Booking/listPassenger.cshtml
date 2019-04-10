@@ -1,0 +1,181 @@
+﻿@model LounaTravel.Models.ViewModels.BookingDetails
+
+<div class="text-center" style="margin: 40px 0 40px 0">
+    <span class="title" style="text-transform: uppercase;">Danh sách khách hàng đi tour</span>
+</div>
+<div class="book-danhsachkhachditour list">
+    <div class="row thongtin" style="font-size: 14px">
+        @{ var count = 1;}
+        @for (int i = 0; i < Model.Adult; i++)
+        {
+            <div class="col-md-12 col-sm-12 col-xs-12 mg-bot10">
+                <div>
+                    <div style="padding: 12px 15px 12px 15px; background: #c50000; color: #FFF">Khách hàng @count</div>
+                </div>
+
+                <div class="row mg-bot10">
+                    <div class="col-sm-4">
+                        <label class="mg-bot5">Họ tên (<span class="price">*</span>)</label>
+                        <div>
+                            <input class="form-control" name="[@i]fullnameAdult" id="[@i]fullnameAdult" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="mg-bot5">Giới tính</label>
+                        <div>
+                            <select class="form-control" name="[@i]genderAdult" id="[@i]genderAdult">
+                                <option value="0">Nữ</option>
+                                <option value="1">Nam</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="mg-bot5">Ngày sinh (<span class="price">*</span>)</label>
+
+                        <input type="text" id="dobAdult+@i" data-count="@i" name="dobAdult+@i" class="dob" style="height:50px;text-align:center;width:100%">
+                        <div style="display:none;color:red" id="messageDOBAdult+@i"></div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <label class="mg-bot5">Loại khách</label>
+                        <div>
+                            <select class="form-control" id="adult+@i" name="[0].personkind" onchange="ChangeChoose();">
+                                <option value="0">Người lớn</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding: 15px 0 0px 0; border-top: 1px solid #ccc; margin-top: 15px;">
+                    <div class="col-lg-12 col-sm-12 text-right">
+                        Trị giá: <span style="color:#cd2c24;font-weight: bold;font-size: 16px;padding-top: 18px" id="spanprice+@count">@string.Format("{0:#,0}", Model.PriceAdult) đ</span>
+                        <input class="form-control" disabled="disabled" id="price+@count" name="price+@count" type="hidden" value="@Model.PriceAdult đ">
+                    </div>
+                </div>
+
+            </div>
+            count++;
+        }
+        @for (int i = 0; i < Model.Kid; i++)
+        {
+            <div class="col-md-12 col-sm-12 col-xs-12 mg-bot10">
+                <div>
+                    <div style="padding: 12px 15px 12px 15px; background: #c50000; color: #FFF">Khách hàng @count</div>
+                </div>
+
+                <div class="row mg-bot10">
+                    <div class="col-sm-4">
+                        <label class="mg-bot5">Họ tên (<span class="price">*</span>)</label>
+                        <div>
+                            <input class="form-control" name="[@i]fullnameKid" id="[@i]fullnameKid" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="mg-bot5">Giới tính</label>
+                        <div>
+                            <select class="form-control" name="[@i]genderKid" id="[@i]genderKid">
+                                <option value="0">Nữ</option>
+                                <option value="1">Nam</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="mg-bot5">Ngày sinh (<span class="price">*</span>)</label>
+
+                        <input type="text" data-count="@i" id="dobKid+@i" name="dobKid+@i" class="dob" style="height:50px;text-align:center;width:100%">
+                        
+                        <div style="display:none;color:red" id="messageDOBKid+@i"></div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <label class="mg-bot5">Loại khách</label>
+                        <div>
+                            <select class="form-control" id="kid+@i" name="[0].personkind">
+                                <option value="1">Trẻ em</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding: 15px 0 0px 0; border-top: 1px solid #ccc; margin-top: 15px;">
+                    <div class="col-lg-12 col-sm-12 text-right">
+                        Trị giá: <span style="color:#cd2c24;font-weight: bold;font-size: 16px;padding-top: 18px" id="spanprice+@count">@string.Format("{0:#,0}", Model.PriceKid) đ</span>
+                        <input class="form-control" disabled="disabled" id="price@i" name="price+@count" type="hidden" value="@Model.PriceKid đ">
+                    </div>
+                </div>
+
+            </div>
+            count++;
+        }
+        @for (int i = 0; i < Model.Baby; i++)
+        {
+            <div class="col-md-12 col-sm-12 col-xs-12 mg-bot10">
+                <div>
+                    <div style="padding: 12px 15px 12px 15px; background: #c50000; color: #FFF">Khách hàng @count</div>
+                </div>
+
+                <div class="row mg-bot10">
+                    <div class="col-sm-4">
+                        <label class="mg-bot5">Họ tên (<span class="price">*</span>)</label>
+                        <div>
+                            <input class="form-control" name="[@i]fullnameBaby" id="[@i]fullnameBaby" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="mg-bot5">Giới tính</label>
+                        <div>
+                            <select class="form-control" name="[@i]genderBaby" id="[@i]genderBaby">
+                                <option value="0">Nữ</option>
+                                <option value="1">Nam</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <label class="mg-bot5">Ngày sinh (<span class="price">*</span>)</label>
+
+                        <input type="text" data-count="@i" id="dobBaby+@i" name="dobBaby+@i" class="dob" style="height:50px;text-align:center;width:100%">
+                        <div style="display:none;color:red" id="messageDOBBaby+@i"></div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <label class="mg-bot5">Loại khách</label>
+                        <div>
+                            <select class="form-control" id="baby+@i" name="[0].personkind" onchange="ChangeChoose();">
+                                <option value="2">Trẻ nhỏ</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="padding: 15px 0 0px 0; border-top: 1px solid #ccc; margin-top: 15px;">
+                    <div class="col-lg-12 col-sm-12 text-right">
+                        Trị giá: <span style="color:#cd2c24;font-weight: bold;font-size: 16px;padding-top: 18px" id="spanprice+@count">@string.Format("{0:#,0}", Model.PriceBaby) đ</span>
+                        <input class="form-control" disabled="disabled" id="price+@count" name="price+@count" type="hidden" value="@Model.PriceBaby đ">
+                    </div>
+                </div>
+
+            </div>
+            count++;
+        }
+    </div>
+
+    <div class="row" style="margin-top: 30px">
+        <div class="col-lg-12">
+            <div style="text-align: left; padding: 10px 15px 10px 15px; background: #ddd">
+                <span style="font-weight: bold; font-size: 14px; margin-right: 10px; text-transform: uppercase">Tổng cộng:</span>
+                @{double total = Model.PriceAdult * Model.Adult + Model.PriceBaby * Model.Baby + Model.PriceKid * Model.Kid;}
+                <span style="color: #cd2c24; font-weight: bold; font-size: 20px;float:right;" id="spanTotalPrice">@string.Format("{0:#,0}", total) đ</span>
+                <input type="hidden" id="TotalPrice" disabled="disabled" class="form-control" value="@total">
+            </div>
+        </div>
+    </div>
+</div>
+@{ var today = DateTime.Now;
+
+    DateTime fromdayAdult = new DateTime(today.Year - 50, today.Month, today.Day);
+    DateTime fromdayKid = new DateTime(today.Year - 12, today.Month, today.Day);
+    DateTime fromdayBaby = new DateTime(today.Year - 2, today.Month, today.Day);
+
+}

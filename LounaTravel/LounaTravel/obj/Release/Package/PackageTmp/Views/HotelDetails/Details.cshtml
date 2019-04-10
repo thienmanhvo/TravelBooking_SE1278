@@ -1,0 +1,230 @@
+﻿@model LounaTravel.EntityFramework.ListContainerHotelDetails
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    #credit {
+        width: 100%;
+        height: 70px;
+        border: 1px mediumaquamarine;
+        background-color: aliceblue;
+        line-height: 70px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+</style>
+<script>
+    function ValidationSearchHotel() {
+        var price = document.getElementById("txtPrice");
+        var toPlace = document.getElementById("txtToPlace");
+
+        if (toPlace.value == 0) {
+            alert('Bạn cần thành phố bạn muốn ở');
+            return false;
+        }
+        if (price.value == 0) {
+            alert('Bạn cần chọn tầm giá');
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+
+
+
+
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('/Assets/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Hotel</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section ftco-degree-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 sidebar">
+                <div class="sidebar-wrap ftco-animate">
+                    <h3 class="heading mb-4">Find City</h3>
+
+
+
+                    @using (Html.BeginForm("SearchHotel", "Home", FormMethod.Post, new { onsubmit = "return ValidationSearchHotel()" }))
+                    {
+
+                        <div class="fields">
+                            <div class="form-group">
+                                <div class="select-wrap one-third">
+                                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                    <select name="txtToPlace" id="txtToPlace" class="form-control" placeholder="Keyword search">
+                                        <option value="0">Chọn thành phố</option>
+                                        @foreach (var city in Model.ComboBoxCity)
+                                        {
+                                            <option value="@city.CityID">@city.CityName</option>
+                                        }
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="txtPrice" id="txtPrice" class="form-control">
+                                            <option value="0">Giá</option>
+                                            <option value="1000000">Dưới 1 triệu</option>
+                                            <option value="2000000">Dưới 2 triệu</option>
+                                            <option value="4000000">Dưới 4 triệu</option>
+                                            <option value="6000000">Dưới 6 triệu</option>
+                                            <option value="8000000">Dưới 8 triệu</option>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-12 ftco-animate">
+                        <div class="single-slider owl-carousel">
+                            @foreach (var image in Model.Image)
+                            {
+                                <div class="item">
+                                    <div class="hotel-img" style="background-image: url(/Assets/images/@image.Path);"></div>
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+
+                    @{
+
+                        var details = Model.HotelDetails;
+                        <div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+                            <span>Một trong những khách sạn &amp; phòng tốt nhất tại @details.ElementAt(0).cityName</span>
+                            <h2>@details.ElementAt(0).nameHotel</h2>
+                            <p class="rate mb-5">
+                                <span class="loc"><i class="icon-map"> Địa chỉ : </i>@details.ElementAt(0).address , @details.ElementAt(0).cityName</span>
+                                <br />
+
+                                <span class="loc"><i class="icon-map"> Liên hệ : </i>@details.ElementAt(0).email</span>
+                            </p>
+                            <p>@details.ElementAt(0).description</p>
+                            Các tiện ích được ưu chuộng nhất tại @details.ElementAt(0).nameHotel
+                            @foreach (var convenient in Model.Convenient)
+                            {
+                                <ul class="ml-md-5">
+                                    <li>
+                                        @Html.Raw(convenient.Convenient)
+                                    </li>
+                                </ul>
+                            }
+                            <hr />
+                            @if (details.ElementAt(0).isCredit == true)
+                            {
+                                <div id="credit" class="text-center">
+
+                                    <i class="fa fa-product-hunt col-lg-12" aria-hidden="true">
+                                        <b style="margin-left:10px;">Đặt phòng không cần thẻ tín dụng. Chúng tôi sẽ gửi cho bạn một email xác nhận đặt phòng.</b>
+                                    </i>
+
+                                </div>
+                            }
+                            @if (details.ElementAt(0).isParking == true)
+                            {
+                                <div id="credit" class="text-center">
+
+                                    <i class="fa fa-credit-card col-lg-12" id="margin" aria-hidden="true"><b style="margin-left:10px;">Có chỗ đỗ xe riêng miễn phí tại chỗ (cần đặt chỗ trước).</b></i>
+
+                                </div>
+                            }
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <center>
+                                <input type="submit" value="Liên Hệ" class="btn btn-primary py-3 px-5">
+                            </center>
+                        </div>
+
+
+                    }
+
+                    <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+                        <h4 class="mb-4">Những Phòng Chạy Nhất</h4>
+                        <div class="row">
+                            @for (int i = 0; i < 3; i++)
+                            {
+                                string path;
+
+                                if (Model.HotelHot.ElementAt(i).tbl_ImageHotel != null && Model.HotelHot.ElementAt(i).tbl_ImageHotel.Count > 0)
+                                {
+                                    path = Model.HotelHot.ElementAt(i).tbl_ImageHotel.FirstOrDefault().Path;
+
+                                }
+                                else
+                                {
+                                    path = "error.jpg";
+
+                                }
+                                <div class="col-md-4">
+                                    <div class="destination">
+                                        <a href="@Url.Action("Details","HotelDetails",new {id=@Model.HotelHot.ElementAt(i).ID})" class="img img-2" style="background-image: url(/Assets/images/@path);"></a>
+                                        <div class="text p-3">
+                                            <div class="d-flex">
+                                                <div class="one">
+                                                    <h3><a href="@Url.Action("Details","HotelDetails",new {id=@Model.HotelHot.ElementAt(i).ID})">@Model.HotelHot.ElementAt(i).Name</a></h3>
+
+                                                </div>
+                                                <div class="two">
+                                                    <span class="price per-price">@string.Format("{0:#,0}", Model.HotelHot.ElementAt(i).Price) VND<br><small>/Đêm</small></span>
+                                                </div>
+                                            </div>
+                                            <p>@Model.HotelHot.ElementAt(i).Description</p>
+                                            <hr>
+                                            <p class="bottom-area d-flex row">
+                                                <span class="col-sm-12" style="padding-bottom: 10px"><i class="icon-map-o"></i> @Model.HotelHot.ElementAt(i).Address</span>
+
+                                                <span class="ml-auto col-sm-12"><a href="@Url.Action("Details","HotelDetails",new {id=@Model.HotelHot.ElementAt(i).ID})">Đặt Ngay</a></span>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </div>
+                </div> <!-- .col-md-8 -->
+            </div>
+        </div>
+    </div>
+</section> <!-- .section -->
